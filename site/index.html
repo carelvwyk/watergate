@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Maak Oop!</title>
+    <style media="screen">
+      .background {
+        background: url("img/waterzicht.jpg") no-repeat center;
+        margin:0px auto;
+        overflow:hidden;
+        height: 720px;
+      }      
+      .container {
+        position: relative;
+        top: 100px;        
+        border-radius: 5px;
+        margin-top: 10px;
+        font-size: 150%;
+        text-align: center;
+        font-family:'Courier New', Courier, monospace;
+      }
+      .input {
+        display: block;
+        margin: 10px auto;
+        width: 400px;
+        padding: 10px 10px;
+        font-size: 100%;
+        text-align: right;
+        border: 2px solid #001409;
+      }
+      .open-buttons {        
+        margin-top: -300px;
+      }
+      .button {
+        display: block;
+        margin: 350px auto;
+        width: 400px;
+        padding: 20px 10px;
+        border: none;
+        text-decoration: none;
+        color: white;
+        background-color: #001409;
+        opacity: 0.9;
+        border: 2px solid white;
+        font-weight: bold;
+      }
+      .button:active {
+        background: gray;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background">      
+      <div class="container">
+        <div id="login">
+          <input id="input-mobilenum" class="input" type="text" placeholder="Voorsien Selnommer..."/>
+          <input id="input-pin" class="input" type="password" placeholder="Voorsien Geheime Kode..."/>
+          <a id="btn-signin" class="button" href="#">Doenit</a>
+        </div>
+        <div id="open-buttons" class="open-buttons" style="display:none">
+          <a class="button" id="btn-outsidegate" href="#">Buite Hek (R44)</a>
+          <a class="button" id="btn-insidegate" href="#">Binne Hek (Waterzicht)</a>
+        </div>
+      </div>
+    </div>
+    <script src="js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="js/vendor/jquery-ui.min.js"></script>
+    <script src="js/vendor/amazon-cognito-identity.min.js"></script>
+    <script src="js/gate-api.js"></script>
+    <script src="js/cognito-auth.js"></script>
+    <script src="js/page.js"></script>
+  </body>
+</html>
