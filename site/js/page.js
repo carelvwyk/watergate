@@ -35,8 +35,9 @@ $(function() {
     gateAPI.SetToken(token);
     $('#open-buttons').show('fade');
   }
-  function errorCallback() {
+  function errorCallback(err) {
     $('#open-buttons').hide('fade');
+    alert('Daar was \'n probleem!\n"'+err.message+'"');
     $('#login').show('fade');
   };
 
