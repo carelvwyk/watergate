@@ -2,43 +2,64 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="icon" type="image/ico" href="favicon.ico">
     <title>Maak Oop!</title>
     <style media="screen">
       .background {
-        background: url("img/waterzicht.jpg") no-repeat center;
+        background: url("img/waterzicht.jpg");
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: lightgray;
         margin:0px auto;
         overflow:hidden;
-        height: 720px;
-      }      
+        height: 100vh;
+      }
       .container {
         position: relative;
-        top: 100px;        
+        top: 30%;
         border-radius: 5px;
         margin-top: 10px;
-        font-size: 150%;
+        font-size: 250%;
         text-align: center;
         font-family:'Courier New', Courier, monospace;
+      }
+      .matrix {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        background: url("img/matrixcode.gif");
+        background-size: 100% 100%;
+        font-size: 2500%;
+        color: white;
+        text-align: center;
+        vertical-align: middle;
+        font-family:'Courier New', Courier, monospace;
+        font-weight: bold
       }
       .input {
         display: block;
         margin: 10px auto;
-        width: 400px;
-        padding: 10px 10px;
-        font-size: 100%;
+        width: 600px;
+        padding: 20px 20px;
+        font-size: 200%;
         text-align: right;
         border: 2px solid #001409;
       }
-      .open-buttons {        
-        margin-top: -300px;
+      .open-buttons {
+        margin-top: -150px;
       }
       .button {
         display: block;
-        margin: 350px auto;
-        width: 400px;
-        padding: 20px 10px;
+        margin: 100px auto;
+        width: 600px;
+        padding: 30px 10px;
         border: none;
         text-decoration: none;
         color: white;
+        font-size: 200%;
         background-color: #001409;
         opacity: 0.9;
         border: 2px solid white;
@@ -51,17 +72,20 @@
     </style>
   </head>
   <body>
-    <div class="background">      
+    <div class="background">
       <div class="container">
         <div id="login">
-          <input id="input-mobilenum" class="input" type="text" placeholder="Voorsien Selnommer..."/>
-          <input id="input-pin" class="input" type="password" placeholder="Voorsien Geheime Kode..."/>
+          <input id="input-mobilenum" class="input" type="text" placeholder="Selnommer..."/>
+          <input id="input-pin" class="input" type="password" placeholder="Pin Kode"/>
           <a id="btn-signin" class="button" href="#">Doenit</a>
         </div>
         <div id="open-buttons" class="open-buttons" style="display:none">
           <a class="button" id="btn-outsidegate" href="#">Buite Hek (R44)</a>
           <a class="button" id="btn-insidegate" href="#">Binne Hek (Waterzicht)</a>
         </div>
+      </div>
+      <div class="matrix" style="display:none">
+        <span id="countdown">1</span>
       </div>
     </div>
     <script src="js/vendor/jquery-3.3.1.min.js"></script>

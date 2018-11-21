@@ -1,4 +1,22 @@
 $(function() {
+  var countdown = function(start) {
+    $(".matrix").show();
+    $("#countdown").text(start);
+    if (start <= 0) {
+      $(".matrix").hide();
+      return;
+    }
+    // $("#countdown").animate({
+    //   fontSize: "100%"
+    // }, 500);
+    // $("#countdown").animate({
+    //   fontSize: "300%"
+    // }, 500);
+    setTimeout(function(){
+      countdown(start-1);
+    }, 1000);
+  }
+
   var gateAPI = new GateAPI();
   var cognitoAPI = new CognitoAPI();
 
@@ -44,20 +62,20 @@ $(function() {
   $('#btn-signin').click(function() {
     console.log("Clicked");
     $('#login').hide('fade');
-    cognitoAPI.SignIn(mobileNumInput.val(), pinInput.val(), successCallback, 
-      errorCallback);    
+    cognitoAPI.SignIn(mobileNumInput.val(), pinInput.val(), successCallback,
+      errorCallback);
   });
 
   // Gate buttons
   $('#btn-insidegate').click(function() {
     console.log(gateAPI);
-    gateAPI.OpenGate("CAREL");
-    //gateAPI.OpenGate('INSIDEGATE');
+    countdown(7);
+    gateAPI.OpenGate('INSIDEGATE');
   });
   $('#btn-outsidegate').click(function() {
-    gateAPI.OpenGate("CAREL");
     console.log(gateAPI);
-    //gateAPI.OpenGate('INSIDEGATE');
+    countdown(7);
+    gateAPI.OpenGate('OUTSIDEGATE');
   });
 
 });
